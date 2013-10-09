@@ -1,0 +1,97 @@
+﻿<script src="Scripts/jquery-2.0.3.min.js"></script>
+<script src="Scripts/gameTimer.js"></script>
+<script src="Scripts/swapMe.js"></script>
+<script src="Scripts/BinaryHeap.js"></script>
+<script src="Scripts/State.js"></script>
+<script src="Scripts/AstarAlgorithm.js"></script>
+
+<style>
+    div {
+        height: 200px;
+        width: 200px;
+        border: solid;
+        float: left;
+    }
+
+    imgsrc {
+        height: 200px;
+        width: 200px;
+        background: url("/Content/Images/Chrysanthemum.jpg") no-repeat;
+        background-position: 0px -200px;
+    }
+    button {
+        border: 1px solid #378cbb;
+        background: #5bb5d0;
+    }
+
+</style>
+
+<div style="height: 1500px; width: 50%; position: absolute; left: 0%" tabindex="0">
+
+    <div id="timergamePuzzleHolder1" style="border: hidden; width: 450px; height: 93px; position: absolute; left: 1%; top: 1%;">
+    </div>
+    <div id="buttonHoldergamePuzzleHolder1" style="position: relative;left: 44%;height: 93px;width: 180px;top:1%;">
+        <input type="button" id="ResetgamePuzzleHolder1" value="Reset" style="position: absolute;top: 12.5%;width: 35%;left: 10%;padding: 7%;"/>
+        <input type="button" id="ShufflegamePuzzleHolder1" value="Shuffle" style="position: absolute;top: 12.5%;left: 55%;width: 35%;padding: 7%;" />
+    </div>
+    <div id="DetailsgamePuzzleHolder1" style="border: hidden; position: absolute; height: 93px; width: 50%; left: 75%; top: 1%">
+        <label>Details:</label><br>
+        <label>Name:</label>
+        <label>Arun</label><br>
+        <label>Moves Made:</label>
+        <label id="countgamePuzzleHolder1">0</label><br>
+        <label>Time Taken:</label>
+        <label id="timetakengamePuzzleHolder1">0</label><br>
+        <label>Status:</label>
+        <label id="statusgamePuzzleHolder1">Active</label><br>
+    </div>
+    <div id="gamePuzzleHolder1" tabindex="0" class="divInn" style="position: absolute; top: 120px; left:1.5%; height: 620px; width: 620px;">
+    </div>
+      <div id="previewHoldergamePuzzleHolder1" style="position: absolute; top: 800px; right:2.5%; height: 440px; width:620px;">
+        </div>
+    <input type="button" id="bt" value="Solve"/>
+</div>
+
+<div style="position: absolute; height:1500px; width: 50%; right: 0px;">
+
+    <div id="timergamePuzzleHolder2" style="border: hidden; width: 450px; height: 93px; position: absolute; left: 2%; top: 1%;">
+    </div>
+    <div id="buttonHoldergamePuzzleHolder2" style="position: relative;left: 45%;height: 93px;width: 180px;top:1%;">
+        <input type="button" id="ResetgamePuzzleHolder2" class="button" value="Reset" style="position: absolute;top: 12.5%;width: 35%;left: 10%;padding: 7%;" />
+        <input type="button" id="ShufflegamePuzzleHolder2" class="button" value="Shuffle" style="position: absolute;top: 12.5%;left: 55%;width: 35%;padding: 7%;"/>
+    </div>
+    <div id="DetailsgamePuzzleHolder2" style="border: hidden; position: absolute; height: 93px; width: 50%; left: 75%; top: 1%">
+        <label>Details:</label><br>
+        <label>Name:</label>
+        <label>Krishnan</label><br>
+        <label>Moves Made:</label>
+        <label id="countgamePuzzleHolder2">0</label><br>
+        <label>Time Taken:</label>
+        <label id="timetakengamePuzzleHolder2">0</label><br>
+        <label>Status:</label>
+        <label id="statusgamePuzzleHolder2">Active</label><br>
+    </div>
+    <div id="gamePuzzleHolder2" tabindex="0" class="divInn" style="position: absolute; top: 120px; right:1.5%; height: 620px; width: 620px;">
+    </div>
+    <div id="previewHoldergamePuzzleHolder2" style="position: absolute; top: 800px; right:2.5%; height: 440px; width:620px;">
+     </div>
+</div>
+
+
+<script type="text/javascript">
+    // 37 - left  38 - up 39 - right 40 - down
+    // 65 - A  87 - W 68 - D 83 - W
+    $(document).ready(function () {        
+        var swapMe1 = new swapMe('gamePuzzleHolder1');
+        swapMe1
+        swapMe1.Newpuzzle(9);
+        swapMe1.BindControls(87, 83, 65, 68);
+        $('#bt').bind('click', function () {
+            debugger;
+            swapMe1.SolvethePuzzle();
+        });
+        var swapMe2 = new swapMe('gamePuzzleHolder2');
+        swapMe2.Newpuzzle(9);
+        swapMe2.BindControls(38, 40, 37, 39);
+    });
+</script>
